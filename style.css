@@ -1,0 +1,19 @@
+* {/*Reset padding, margin and border on all elements*/
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    /*Hide overflow to remove scroller in browsers*/
+    overflow: hidden;
+}
+
+canvas{
+    position:relative;
+}
+select{
+    margin: 1%;
+    color: white;
+    background-color: black;
+    position: fixed;
+    z-index: 2;
+    font-size:2em;
+}
