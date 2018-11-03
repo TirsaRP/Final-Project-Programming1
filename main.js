@@ -26,7 +26,7 @@ gradient.addColorStop(".9", "#ff4dc4"); //hot pink
 context.strokeStyle = gradient;
 
 
-//this makes the canvas a gradient from  black on top to grey at bottom
+//this makes the canvas (background) a gradient from  black on top to grey at bottom
 let canvasGradient = context.createLinearGradient(0, 0, 0, canvas.height);
 canvasGradient.addColorStop(0,"black");
 canvasGradient.addColorStop(0.6,"#1a1a1a");
@@ -74,4 +74,6 @@ document.addEventListener("mousedown", handleMouseDown);
 document.addEventListener("mouseup", handleMouseUp);
 document.addEventListener("mousemove", handleMouseMove);
 
+
+//preparing for javascript code to select colors from select element options
 //let colorSelectors= getElementById("selectColor");
