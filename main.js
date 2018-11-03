@@ -1,4 +1,3 @@
-
 //Get reference to canvas
 const canvas = document.getElementById("particles");
 
