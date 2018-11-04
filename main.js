@@ -12,7 +12,7 @@ const context = canvas.getContext("2d");
 console.log(context);
 
 /////////////////////////////////////////////////////////
-
+/*
 //this makes the stokeStyle a gradient of purple-hot pink
 let gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
 gradient.addColorStop("0", " #7300e6"); //purple
@@ -23,22 +23,20 @@ gradient.addColorStop(".6", "#00ffff"); //turquoise
 gradient.addColorStop(".7", "#cc00cc"); //magenta
 gradient.addColorStop(".9", "#ff4dc4"); //hot pink
 context.strokeStyle = gradient;
-
+*/
 
 //this makes the canvas (background) a gradient from  black on top to grey at bottom
 let canvasGradient = context.createLinearGradient(0, 0, 0, canvas.height);
-canvasGradient.addColorStop(0,"black");
-canvasGradient.addColorStop(0.6,"#1a1a1a");
-canvasGradient.addColorStop(0.8,"#262626");
-canvasGradient.addColorStop(0.9,"#333333");
-canvasGradient.addColorStop(1,"#404040");
-context.fillStyle=canvasGradient;
-context.fillRect(0,0, canvas.width, canvas.height);
-
+canvasGradient.addColorStop(0, "black");
+canvasGradient.addColorStop(0.6, "#1a1a1a");
+canvasGradient.addColorStop(0.8, "#262626");
+canvasGradient.addColorStop(0.9, "#333333");
+canvasGradient.addColorStop(1, "#404040");
+context.fillStyle = canvasGradient;
+context.fillRect(0, 0, canvas.width, canvas.height);
 
 //Set thickness
 context.lineWidth = 4;
-
 
 //Boolean variable for mouse state
 let isMouseDown = false;
@@ -73,6 +71,29 @@ document.addEventListener("mousedown", handleMouseDown);
 document.addEventListener("mouseup", handleMouseUp);
 document.addEventListener("mousemove", handleMouseMove);
 
-
 //preparing for javascript code to select colors from select element options
 //let colorSelectors= getElementById("selectColor");
+function changeColorFunction() {
+  let color = document.getElementById("selectColor").value;
+  let gradient = context.createLinearGradient( 0, 0, canvas.width, canvas.height);
+
+    if (color === "gradient") {
+    gradient.addColorStop("0", " #7300e6"); //purple
+    gradient.addColorStop(".2", "#a31aff"); //bright purple
+    gradient.addColorStop(".4", "#0000ff"); //blue
+    gradient.addColorStop(".5", "#33ccff"); //bright blue
+    gradient.addColorStop(".6", "#00ffff"); //turquoise
+    gradient.addColorStop(".7", "#cc00cc"); //magenta
+    gradient.addColorStop(".9", "#ff4dc4"); //hot pink
+    context.strokeStyle = gradient;
+  } else if (color === "blue") {
+    gradient.addColorStop(".4", "#66c2ff"); //blue
+    context.strokeStyle = color;
+  } else if (color === "pink") {
+    gradient.addColorStop(".4", "#ff33bb"); //pink
+    context.strokeStyle = color;
+  }  else if (color === "purple") {
+      gradient.addColorStop(".4", "#cc00cc"); //purple
+      context.strokeStyle = color;
+  } 
+}

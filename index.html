@@ -10,11 +10,12 @@
 
 <body>
 
-        <select id="selectColor">
+        <select id="selectColor" name="color" onchange="changeColorFunction()">
+            <option selected disabled>Pick Color</option>
             <option value="blue" id="blue">Blue</option>
-            <option value="red" id="red">Red</option>
+            <option value="pink" id="pink">Pink</option>
             <option value="purple" id="purple">Purple</option>
-            <option value="Gradient" id="gradient">Gradient</option>
+            <option value="gradient" id="gradient">Gradient</option>
         </select>
   
     <canvas id="particles">
