@@ -66,10 +66,43 @@ function handleMouseMove(event) {
     context.stroke();
   }
 }
+let touchStart= false;
+
+//Handle touch start
+function handleTouchStart(event) {
+  console.log("touch started");
+  console.log("touch started at x: " + event.clientX + ", y: " + event.clientY);
+  touchStart = true;
+  context.beginPath();
+  context.moveTo(event.clientX, event.clientY);
+  console.log(event);
+}
+//Handle touch end
+function handleTouchEnd(event) {
+  console.log("touch ended");
+  console.log("touch ended at x: " + event.clientX + ", y: " + event.clientY);
+  touchStart = false;
+  context.closePath();
+}
+//Handle touch move
+function handleTouchMove(event) {
+  if (touchStart === true) {
+    context.lineTo(event.clientX, event.clientY);
+    context.stroke();
+    console.log(event);
+  }
+}
 //Set mouse listeners. don't need to write false as it is the default
 document.addEventListener("mousedown", handleMouseDown);
 document.addEventListener("mouseup", handleMouseUp);
 document.addEventListener("mousemove", handleMouseMove);
+//set touch listeners
+document.addEventListener("touchstart", handleTouchStart);
+document.addEventListener("touchmove", handleTouchMove);
+document.addEventListener("touchend", handleTouchEnd);
+
+
+
 
 //preparing for javascript code to select colors from select element options
 //let colorSelectors= getElementById("selectColor");
