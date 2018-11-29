@@ -71,10 +71,12 @@ function mouseMove (event){
 }
 //add event listener
 pic.addEventListener("mousemove", mouseMove, false);
-*/
-/*
-function draw() {
+
+/*function draw() {
     context.save()
     
+}*/
+function mouseDown(event){
+    
 }
-*/
+
