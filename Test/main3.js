@@ -9,6 +9,39 @@ let pic = document.getElementById("Picture1");
 //create the pics coordinates
 let picCor = {x:0, y:0}
 
+pic.onmousedown = function(event) { // (1) start the process
+
+    // (2) prepare to moving: make absolute and on top by z-index
+    pic.style.position = 'absolute';
+    pic.style.zIndex = 1000;
+    // move it out of any current parents directly into body
+    // to make it positioned relative to the body
+    document.body.append(pic);
+    // ...and put that absolutely positioned ball under the cursor
+  
+    moveAt(event.pageX, event.pageY);
+  
+    // centers the ball at (pageX, pageY) coordinates
+    function moveAt(pageX, pageY) {
+      pic.style.left = pageX - pic.offsetWidth / 2 + 'px';
+      pic.style.top = pageY - pic.offsetHeight / 2 + 'px';
+    }
+  
+    function onMouseMove(event) {
+      moveAt(event.pageX, event.pageY);
+    }
+  
+    // (3) move the ball on mousemove
+    document.addEventListener('mousemove', onMouseMove);
+  
+    // (4) drop the ball, remove unneeded handlers
+    pic.onmouseup = function() {
+      document.removeEventListener('mousemove', onMouseMove);
+      pic.onmouseup = null;
+    };
+  
+  };
+/*
 //Create mouse position variables
 let mouseCor = {x:0, y:0}
 
@@ -37,10 +70,11 @@ function mouseMove (event){
     console.log(direction1 + " and " + direction2);
 }
 //add event listener
-document.addEventListener("mousemove", mouseMove, false);
-
+pic.addEventListener("mousemove", mouseMove, false);
+*/
+/*
 function draw() {
     context.save()
     
 }
-
+*/
