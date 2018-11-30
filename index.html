@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    
         <select id="selectColor" name="color" onchange="changeColorFunction()">
             <option selected disabled>Pick Color</option>
             <option value="blue" id="blue">Blue</option>
@@ -17,11 +17,15 @@
             <option value="purple" id="purple">Purple</option>
             <option value="gradient" id="gradient">Gradient</option>
         </select>
-  
+        <div class="slidecontainer">
+            <input type="range" min="1" max="50" value="50" class="slider" id="myRange">
+          </div>
     <canvas id="particles">
         Canvas not working!
     </canvas>
   
+        <img id="image" src="broom.JPG">
+    
     <script type="text/javascript" src="main.js"></script>
 </body>
 

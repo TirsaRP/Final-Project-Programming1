@@ -5,26 +5,63 @@ canvas.height = document.documentElement.clientHeight;
 const context = canvas.getContext("2d");
 
 //get the picture
-let pic = document.getElementById("Picture1");
+let pic1 = document.getElementById("Picture1");
+let pic2 = document.getElementById("picture2");
 //create the pics coordinates
-let picCor = {x:0, y:0}
+let picCor = { x: 0, y: 0 };
+let pic2Cor = { x: 0, y: 0 };
 
-pic.onmousedown = function(event) { // (1) start the process
+function onmousedown(element, event) {
+  // (1) start the process
 
+  // (2) prepare to moving: make absolute and on top by z-index
+  element.style.position = "absolute";
+  element.style.zIndex = 1000;
+  // move it out of any current parents directly into body
+  // to make it positioned relative to the body
+  document.body.append(pic);
+  // ...and put that absolutely positioned ball under the cursor
+
+  moveAt(event.pageX, event.pageY);
+
+  // centers the ball at (pageX, pageY) coordinates
+
+  function moveAt(pageX, pageY) {
+    pic.style.left = pageX - pic.offsetWidth / 2 + "px";
+    pic.style.top = pageY - pic.offsetHeight / 2 + "px";
+  }
+
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+  }
+
+  // (3) move the ball on mousemove
+  document.addEventListener("mousemove", onMouseMove);
+
+  // (4) drop the ball, remove unneeded handlers
+  pic.onmouseup = function() {
+    document.removeEventListener("mousemove", onMouseMove);
+    pic.onmouseup = null;
+  };
+};
+pic2.onmousedown = function(event) {
+    // (1) start the process
+  
     // (2) prepare to moving: make absolute and on top by z-index
-    pic.style.position = 'absolute';
-    pic.style.zIndex = 1000;
+    pic2.style.position = "absolute";
+    pic2.style.zIndex = 1000;
     // move it out of any current parents directly into body
     // to make it positioned relative to the body
-    document.body.append(pic);
+    document.body.append(pic2);
     // ...and put that absolutely positioned ball under the cursor
   
     moveAt(event.pageX, event.pageY);
   
     // centers the ball at (pageX, pageY) coordinates
+  
     function moveAt(pageX, pageY) {
-      pic.style.left = pageX - pic.offsetWidth / 2 + 'px';
-      pic.style.top = pageY - pic.offsetHeight / 2 + 'px';
+      pic2.style.left = pageX - pic2.offsetWidth / 2 + "px";
+      pic2.style.top = pageY - pic2.offsetHeight / 2 + "px";
     }
   
     function onMouseMove(event) {
@@ -32,15 +69,15 @@ pic.onmousedown = function(event) { // (1) start the process
     }
   
     // (3) move the ball on mousemove
-    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener("mousemove", onMouseMove);
   
     // (4) drop the ball, remove unneeded handlers
-    pic.onmouseup = function() {
-      document.removeEventListener('mousemove', onMouseMove);
-      pic.onmouseup = null;
+    pic2.onmouseup = function() {
+      document.removeEventListener("mousemove", onMouseMove);
+      pic2.onmouseup = null;
     };
-  
   };
+
 /*
 //Create mouse position variables
 let mouseCor = {x:0, y:0}
