@@ -26,13 +26,24 @@ canvas{
     z-index: 2;
     font-size:2em;
 }
-.slidecontainer{
+.slidercontainer{
     margin: 1%;
     color: white;
-    background-color: black;
+    
     position: fixed;
     z-index: 3;
     font-size:2em;
     top: 120px;
     left: 10px;
   }
+#buttons{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 200px;
+    width: 380px;
+    z-index: 2;
+    position: fixed;
+    
+}
+.label{
+    color: white;
+}
