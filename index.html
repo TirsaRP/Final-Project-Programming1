@@ -9,7 +9,11 @@
 </head>
 
 <body>
-
+    <div id="buttons">
+    <div class="slidecontainer">
+        <input type="range" min="1" max="50" value="50" class="slider" id="myRange">
+    </div>
+    <fieldset>
         <select id="selectColor" name="color" onchange="changeColorFunction()">
             <option selected disabled>Pick Color</option>
             <option value="blue" id="blue">Blue</option>
@@ -17,7 +21,16 @@
             <option value="purple" id="purple">Purple</option>
             <option value="gradient" id="gradient">Gradient</option>
         </select>
-  
+    </fieldset>
+    <fieldset>
+        <select id="selectColorBackground" name="backgroundColor" onchange="changeBackground()">
+            <option selected disabled>Pick Background Color</option>
+            <option value="black" id="black">Black</option>
+            <option value="white" id="white">White</option>
+            <option value="gradient" id="gradient2">Gradient</option>
+        </select>
+    </fieldset>
+    </div>
     <canvas id="particles">
         Canvas not working!
     </canvas>
