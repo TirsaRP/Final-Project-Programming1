@@ -5,14 +5,13 @@ canvas.height = document.documentElement.clientHeight;
 const context = canvas.getContext("2d");
 
 //get the picture
-let pic1 = document.getElementById("Picture1");
+let pic = document.getElementById("picture1");
 let pic2 = document.getElementById("picture2");
 //create the pics coordinates
 let picCor = { x: 0, y: 0 };
 let pic2Cor = { x: 0, y: 0 };
 
-function onmousedown(element, event) {
-  // (1) start the process
+/*pic.onmousedown = function(event) { // (1) start the process
 
   // (2) prepare to moving: make absolute and on top by z-index
   element.style.position = "absolute";
@@ -76,9 +75,9 @@ pic2.onmousedown = function(event) {
       document.removeEventListener("mousemove", onMouseMove);
       pic2.onmouseup = null;
     };
-  };
+  
+};*/
 
-/*
 //Create mouse position variables
 let mouseCor = {x:0, y:0}
 
@@ -108,10 +107,20 @@ function mouseMove (event){
 }
 //add event listener
 pic.addEventListener("mousemove", mouseMove, false);
-*/
-/*
-function draw() {
+pic2.addEventListener("mousemove", mouseMove, false);
+
+/*function draw() {
     context.save()
     
+}
+if (direction1 === "right"){
+    document.pic.setAttribute("display", "block");
+    document.pic2.setAttribute("display", "none");
+} else if (direction1 === "left"){
+    document.pic2.setAttribute("display", "block");
+    document.pic.setAttribute("display", "none");
+}
+
+function mouseDown(event){
 }
 */
